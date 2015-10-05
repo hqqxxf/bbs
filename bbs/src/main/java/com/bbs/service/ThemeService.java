@@ -20,4 +20,8 @@ public class ThemeService {
 		return themeDao.list(start, length);
 	}
 	
+	public ThemeEntity getByThemeId(Integer id){
+		return themeDao.get(id);
+	}
+	
 }

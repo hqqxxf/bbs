@@ -1,5 +1,5 @@
 require.config({
-	baseUrl: 'js',
+	baseUrl: basePath + '/views/js',
 	paths: {
 		/*
 		 * libs
@@ -14,5 +14,5 @@ require.config({
 });
 
 require([module], function(module) {
-	console.log(module);
+	//console.log(module);
 })

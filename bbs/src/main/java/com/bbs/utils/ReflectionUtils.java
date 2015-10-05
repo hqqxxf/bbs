@@ -12,7 +12,7 @@ import org.apache.commons.beanutils.PropertyUtils;
 
 @Entity
 public class ReflectionUtils {
-
+	
 	@SuppressWarnings("unchecked")
 	public static <T> Class<T> getSuperClassGenricType(final Class clazz) {
 		return getSuperClassGenricType(clazz, 0);

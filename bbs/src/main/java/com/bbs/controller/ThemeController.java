@@ -23,9 +23,7 @@ public class ThemeController extends MultiActionController{
 	public ModelAndView list(HttpServletRequest request, HttpServletResponse response){
 		List<ThemeEntity> themes = themeService.getThemeList(0, 20);
 		request.setAttribute("themes", themes);
-		request.setAttribute("hello", "heeh");
-		request.getSession().setAttribute("123", "456");
-		return new ModelAndView("theme/list");
+		return new ModelAndView("index/index");
 	}
 
 }

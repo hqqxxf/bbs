@@ -11,12 +11,12 @@ import com.bbs.entity.ThemeEntity;
 @Transactional
 public class ThemeDao extends HibernateDao<ThemeEntity, Integer> {
 
-	public void add(ThemeEntity themeEntity){
+	public void save(ThemeEntity themeEntity){
 		getSession().saveOrUpdate(themeEntity);
 	}
 
 	public List<ThemeEntity> list(Integer start, Integer length) {
-		return getSession().createQuery("from ThemeEntity").setFirstResult(start).setMaxResults(length).list();
+		return getSession().createQuery("from ThemeEntity order by created_date desc").setFirstResult(start).setMaxResults(length).list();
 	}
 
 	public void delete(ThemeEntity themeEntity){
