@@ -1,20 +1,28 @@
+<%@ page contentType="text/html; charset=UTF-8"  isELIgnored="false" %>
+<%@ include file="/views/utils.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>bbs论坛模板</title>
+    <title>bbsè®ºåæ¨¡æ¿</title>
 
 </head>
 <body>
     <header>
-        <div class="header">
-            <p class="title">论坛</p>
-        </div>
-
+        	注册
     </header>
 
-    <footer>
-        footer
-    </footer>
+    <div>
+    	<form action="${ctx }/user/login.do">
+			<label for="username">用户名</label>
+			<input type="text" name="username" value="" id="username" />
+			<label for="password">密码</label>
+			<input type="password" name="password" value="" id="password" />
+			<label for="confirmpassword">密码</label>
+			<input type="password" name="confirmpassword" value="" id="confirmpassword" />
+			<input type="submit" name="login" id="login" value="提交" />
+		</form>
+    </div>
 </body>
 </html>
