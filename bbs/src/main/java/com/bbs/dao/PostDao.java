@@ -1,10 +1,9 @@
 package com.bbs.dao;
 
-import java.util.List;
-
+import com.bbs.entity.PostEntity;
 import org.springframework.stereotype.Repository;
 
-import com.bbs.entity.PostEntity;
+import java.util.List;
 
 @Repository
 public class PostDao extends HibernateDao<PostEntity, Integer> {
@@ -16,6 +15,14 @@ public class PostDao extends HibernateDao<PostEntity, Integer> {
 	public List<PostEntity> getByThemeId(Integer id, Integer start, Integer length) {
 		return getSession().createQuery("from PostEntity where tid = " + id + " order by created_date desc")
 				.setFirstResult(start).setMaxResults(length).list();
+	}
+
+	public void postToTheme(PostEntity postEntity){
+		getSession().save(postEntity);
+	}
+
+	public Long postNums(Integer tid){
+		return (Long) getSession().createQuery("select count(*) from PostEntity where tid = " + tid).uniqueResult();
 	}
 
 }

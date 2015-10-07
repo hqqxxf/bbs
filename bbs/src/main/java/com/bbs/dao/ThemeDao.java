@@ -1,14 +1,11 @@
 package com.bbs.dao;
 
+import com.bbs.entity.ThemeEntity;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.bbs.entity.ThemeEntity;
-
 @Repository
-@Transactional
 public class ThemeDao extends HibernateDao<ThemeEntity, Integer> {
 
 	public void save(ThemeEntity themeEntity){

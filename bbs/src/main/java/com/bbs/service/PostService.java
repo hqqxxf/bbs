@@ -24,4 +24,12 @@ public class PostService {
 		return postDao.getByThemeId(id, start, length);
 	}
 
+	public void postToTheme(PostEntity postEntity){
+		postDao.postToTheme(postEntity);
+	}
+
+	public Long getPostNum(Integer themeId){
+		return postDao.postNums(themeId);
+	}
+
 }
