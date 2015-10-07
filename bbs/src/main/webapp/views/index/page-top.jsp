@@ -10,10 +10,10 @@
 					<div id="nav">
 						<div class="right-content">
 							<div class="log-reg">
-								<a href="${ctx }/views/user/login.jsp">登录</a>
+								<a id="navLogin" href="${ctx }/views/user/login.jsp">登录</a>
 							</div>
 							<div class="log-reg">
-								<a href="${ctx }/views/user/register.jsp">注册</a>
+								<a id="navRegister" href="${ctx }/views/user/register.jsp">注册</a>
 							</div>
 						</div>
 						<div class="nav-content">

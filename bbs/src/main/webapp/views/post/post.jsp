@@ -16,7 +16,7 @@
 <body>
 	<c:import url="../index/page-top.jsp"></c:import>
 
-	<div class="container">
+	<div id="post_wrapper" class="container">
 		<div id="theme" class="container-tab" style="width: 100%;">
 			<h3>author: ${theme.author.username }</h3>
 			<h3>
@@ -32,8 +32,8 @@
 		<c:forEach items="${posts }" var="post" varStatus="t">
 			<div id="postDiv" class="container-tab"
 				style="display: none; width: 80%; float: right;">
-				<textarea id="commentText" name="comment" rows="5" cols="60" value="输入您的评论"></textarea>
-				<input type="button" value="提交评论">
+				<textarea id="commentText"  name="comment" rows="5" cols="60" value="输入您的评论"></textarea>
+				<input id="commitComment" type="button" value="提交评论">
 			</div>
 			<div class="container-tab" style="width: 80%; float: right;">
 				<h3>#${t.index+1 } author: ${post.author.username}</h3>
@@ -50,7 +50,7 @@
 	</div>
 
 	<script type="text/javascript">
-		var module = "post", basePath = "${ctx}";
+		var module = "post", basePath = "${ctx}", themeId = "${theme.tid}";
 	</script>
 	<script src="${ctx }/views/bower_components/requirejs/require.js"
 		type="text/javascript" charset="utf-8"

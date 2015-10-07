@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.alibaba.fastjson.JSONObject;
 import com.bbs.entity.PostEntity;
 import com.bbs.entity.ThemeEntity;
 import com.bbs.service.PostService;
@@ -37,18 +38,24 @@ public class PostController {
 	}
 
 	@RequestMapping("/{tid}/reply")
-	public String reply(@PathVariable("tid")Integer tid, HttpServletRequest request, HttpServletResponse response){
+	public void reply(@PathVariable("tid")Integer tid, HttpServletRequest request, HttpServletResponse response){
 		PostEntity postEntity = new PostEntity();
 		postEntity.setTheme(themeService.getByThemeId(tid));
 		UserEntity user = (UserEntity) request.getSession().getAttribute("user");
-		if(user == null){
-			return "user/login";
+		JSONObject json = new JSONObject();
+		json.put("user", user);
+		if(user != null){
+			postEntity.setAuthor(user);
+			postEntity.setContent(request.getParameter("content"));
+			postEntity.setCreatedDate(new Date());
+			postService.postToTheme(postEntity);
+			json.put("post", postEntity);
 		}
-		postEntity.setAuthor(user);
-		postEntity.setContent(request.getParameter("content"));
-		postEntity.setCreatedDate(new Date());
-		postService.postToTheme(postEntity);
-		return "success";
+		try {
+			response.getWriter().print(json);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

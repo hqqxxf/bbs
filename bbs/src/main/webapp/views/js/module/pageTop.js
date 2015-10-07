@@ -4,6 +4,20 @@ define(['lex'], function(lex) {
 		init: function() {
 			this.adaptPhoneNav();
 			window.onresize = this.adaptPhoneNav;
+			this.getUser();
+		},
+		getUser: function(){
+			var username = lex.cookie.getCookie("username");
+			var navLogin = document.getElementById("navLogin");
+			var navRegister = document.getElementById("navRegister");
+			if(username){
+				navLogin.innerHTML = username;
+				navLogin.href = "";
+				navRegister.style.display = "none";
+			}else{
+				navLogin.innerHTML = "登录";
+				navRegister.style.display = "block";
+			}
 		},
 		adaptPhoneNav: function() {
 			var nav = document.getElementById("nav"),

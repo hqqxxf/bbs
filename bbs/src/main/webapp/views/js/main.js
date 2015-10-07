@@ -5,6 +5,7 @@ require.config({
 		 * libs
 		 * */
 		lex: 'libs/lex',
+		jquery: basePath + '/views/bower_components/jquery/dist/jquery.min',
 		/*
 		 * module
 		 */
@@ -16,5 +17,5 @@ require.config({
 });
 
 require([module], function(module) {
-	console.log(module);
+	//console.log(module);
 })

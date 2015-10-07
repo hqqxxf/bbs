@@ -1,4 +1,4 @@
-define(['lex'],function(lex){
+define(['jquery','lex'],function($,lex){
 	var login = {
 		el: {
 			login: document.getElementById("login")
@@ -7,14 +7,22 @@ define(['lex'],function(lex){
 			this.el.login.onclick = this.toLogin;
 		},
 		toLogin: function(){
-			lex.ajax({
+			$.ajax({
 				url: basePath + '/user/login.do',
-				method: "post",
+				type: "POST",
+				data: {
+					username: document.getElementById('username').value,
+					password: document.getElementById('password').value
+				},
+				dataType:"json",
 				success: function(res){
-					console.log(res);
+					if(res.user){
+						window.history.go(-1);
+					}
+					
 				},
 				error: function(err){
-					console.log(err);
+
 				}
 			})
 		}

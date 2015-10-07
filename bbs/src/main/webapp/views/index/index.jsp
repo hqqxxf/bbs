@@ -46,7 +46,6 @@
 			var module = "index",
 				basePath = "${ctx }",
 				user = "${user.username }";
-			console.log(user);
 		</script>
 		<script src="${ctx }/views/bower_components/requirejs/require.js" type="text/javascript" charset="utf-8" data-main="${ctx }/views/js/main.js"></script>
 	</body>
