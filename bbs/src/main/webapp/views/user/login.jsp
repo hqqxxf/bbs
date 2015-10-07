@@ -13,8 +13,15 @@
 	<input type="text" name="username" value="" id="username" />
 	<label for="password">密码</label>
 	<input type="password" name="password" value="" id="password" />
-	<input type="submit" name="login" id="login" value="提交" />
+	<input type="button" name="login" id="login" value="登录" />
 </form>
 
+
+	<script type="text/javascript">
+		var module = "login", basePath = "${ctx}";
+	</script>
+	<script src="${ctx }/views/bower_components/requirejs/require.js"
+		type="text/javascript" charset="utf-8"
+		data-main="${ctx }/views/js/main.js"></script>
 </body>
 </html>

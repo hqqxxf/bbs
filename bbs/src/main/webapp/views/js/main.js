@@ -9,10 +9,12 @@ require.config({
 		 * module
 		 */
 		index: 'module/index',
-		pageTop: 'module/pageTop'
+		pageTop: 'module/pageTop',
+		post: 'module/post',
+		login: 'module/login'
 	}
 });
 
 require([module], function(module) {
-	//console.log(module);
+	console.log(module);
 })

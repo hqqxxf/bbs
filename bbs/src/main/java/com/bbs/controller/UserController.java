@@ -23,11 +23,13 @@ public class UserController extends MultiActionController {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		UserEntity user = userService.getUser(username, password);
-		request.getSession().setAttribute("user", user);
-		Cookie cookie = new Cookie("username", username);
-		cookie.setPath("/");
-		cookie.setMaxAge(7*24*60*60);
-		response.addCookie(cookie);
-		return "redirect:/theme/list.do";
+		if(user != null){
+			request.getSession().setAttribute("user", user);
+			Cookie cookie = new Cookie("username", username);
+			cookie.setPath("/");
+			cookie.setMaxAge(7*24*60*60);
+			response.addCookie(cookie);
+			return "redirect:/theme/list.do";
+		}
 	}
 }

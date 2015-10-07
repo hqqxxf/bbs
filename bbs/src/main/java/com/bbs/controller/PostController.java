@@ -33,7 +33,7 @@ public class PostController {
 		ThemeEntity theme = themeService.getByThemeId(id);
 		request.setAttribute("theme", theme);
 		request.setAttribute("posts", posts);
-		return "post/list";
+		return "post/post";
 	}
 
 	@RequestMapping("/{tid}/reply")
